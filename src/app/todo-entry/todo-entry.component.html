@@ -1,0 +1,15 @@
+
+<div class="form-group">
+    <div class="input-group">
+        <input type="text" class="form-control" placeholder="Enter todo..." 
+        #todoInput 
+        (keypress)="onTodoinputKeypress($event)"
+        [(ngModel)]="todoText"
+        >
+        <div class="input-group-btn">
+            <button type="button" class="btn btn-info" (click)="onTodoCreate($event)">
+                <span class="glyphicon glyphicon-plus"></span>
+            </button>
+        </div>
+    </div>
+</div>

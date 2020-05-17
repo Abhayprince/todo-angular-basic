@@ -1,0 +1,19 @@
+
+<div class="clearfix"></div>
+<div class="pull-right" *ngIf="allCount>0">
+    <div class="btn-group">
+        <span class="btn btn-primary">All <small>{{allCount}}</small></span>
+        <span class="btn btn-success">Done <small>{{doneCount}}</small></span>
+        <span class="btn btn-warning">Pending <small>{{pendingCount}}</small></span>
+    </div>
+</div>
+<div class="clearfix"></div>
+
+<ul class="list-group" id="todo-list-ul">
+    <li class="list-group-item clearfix" *ngFor="let todo of todoList">
+        <app-single-todo 
+        [todo]="todo" 
+        (todoDelete)="onTodoDeleteRequest(todo)"
+        (todoUpdate)="onTodoUpdate($event)"></app-single-todo>
+    </li>
+</ul>

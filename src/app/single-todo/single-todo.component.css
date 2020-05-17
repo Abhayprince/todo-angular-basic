@@ -1,0 +1,8 @@
+.todo-label{
+    font-weight: normal;
+}
+.todo-label> [type=checkbox]{
+    margin-right: 10px;
+    height: 16px;
+    width: 16px;
+}

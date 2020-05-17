@@ -1,0 +1,37 @@
+
+<div *ngIf="!editing">
+    <div class="pull-left">
+        <label class="todo-label" [for]="todo.id" [ngStyle]="{'color': todo.pending?'inherit':'green'}">
+            <input type="checkbox" [id]="todo.id" [checked]="!todo.pending" (change)="onStatusChange($event)">
+            <!-- <span>{{todo.id}}</span> -->
+            <span *ngIf="todo.pending">{{todo.text}}</span>
+            <del *ngIf="!todo.pending">{{todo.text}}</del>
+        </label>
+    </div>
+    <div class="pull-right">
+        <div class="btn-group">
+            <span *ngIf="todo.pending" class="btn btn-primary" title="Edit" (click)="onEdit($event)">
+                <span class="glyphicon glyphicon-pencil"></span>
+            </span>
+            <span class="btn btn-danger" title="Delete" (click)="onDelete()">
+                <span class="glyphicon glyphicon-trash"></span>
+            </span>
+        </div>    
+    </div>
+</div>
+<div *ngIf="editing">
+    <div class="input-group">
+        <input type="text" class="form-control" [(ngModel)]="changedText" (keyup)="onTextChanging($event)">
+        <span class="input-group-btn">
+            <button class="btn btn-success" title="Save changes" (click)="onUpdate($event)">
+                <span class="glyphicon glyphicon-check"></span>
+            </button>
+            <button class="btn btn-danger" title="Cancel changes" (click)="onCancel($event)">
+                <span class="glyphicon glyphicon-remove"></span>
+            </button>
+        </span>
+    </div>    
+</div>
+
+
+
